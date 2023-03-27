@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Dimimo\Pool\Pool\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class PoolCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'pool';
 
     public $description = 'My command';
 

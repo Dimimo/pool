@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "dimimo/pool",
+    "description": "The Puerto Galera Billiard Competition Laravel 8|9|10 package",
     "keywords": [
-        ":vendor_name",
+        "Dimimo",
         "laravel",
-        ":package_slug"
+        "pool"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/dimimo/pool",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Dimitri Mostrey",
+            "email": "dmostrey@yahoo.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Dimimo\Pool\\Pool\\": "src/",
+            "Dimimo\Pool\\Pool\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Dimimo\Pool\\Pool\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -61,10 +61,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Dimimo\Pool\\Pool\\PoolServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "Pool": "Dimimo\Pool\\Pool\\Facades\\Pool"
             }
         }
     },
