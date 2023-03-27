@@ -2,9 +2,9 @@
 
 namespace Dimimo\Pool\Pool;
 
+use Dimimo\Pool\Pool\Commands\PoolCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Dimimo\Pool\Pool\Commands\PoolCommand;
 
 class PoolServiceProvider extends PackageServiceProvider
 {
