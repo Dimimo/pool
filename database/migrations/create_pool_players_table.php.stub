@@ -21,22 +21,13 @@ class CreatePoolPlayersTable extends Migration
             Schema::create('pool_players', function (Blueprint $table)
             {
                 $table->increments('id');
-                $table->integer('user_id')
-                    ->unsigned()
-                    ->nullable()
-                    ->index();
+                $table->integer('user_id')->unsigned()->nullable()->index();
                 $table->string('name');
-                $table->enum('gender', ['M', 'F'])
-                    ->nullable();
-                $table->integer('pool_team_id')
-                    ->unsigned()
-                    ->index();
-                $table->boolean('captain')
-                    ->index();
-                $table->string('contact_nr')
-                    ->nullable();
-                $table->string('cycle')
-                    ->index();
+                $table->enum('gender', ['M', 'F'])->nullable();
+                $table->integer('pool_team_id')->unsigned()->index();
+                $table->boolean('captain')->index();
+                $table->string('contact_nr')->nullable();
+                $table->string('cycle')->index();
                 $table->timestamps();
             });
         }

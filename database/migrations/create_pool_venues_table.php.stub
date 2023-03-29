@@ -22,18 +22,12 @@ class CreatePoolVenuesTable extends Migration
             {
                 $table->increments('id');
                 $table->string('name');
-                $table->string('address')
-                    ->nullable();
-                $table->string('contact_name')
-                    ->nullable();
-                $table->string('contact_nr')
-                    ->nullable();
-                $table->text('remark')
-                    ->nullable();
-                $table->decimal('lat', 12, 7)
-                    ->nullable();
-                $table->decimal('lng', 12, 7)
-                    ->nullable();
+                $table->string('address')->nullable();
+                $table->string('contact_name')->nullable();
+                $table->string('contact_nr')->nullable();
+                $table->text('remark')->nullable();
+                $table->decimal('lat', 12, 7)->nullable();
+                $table->decimal('lng', 12, 7)->nullable();
                 $table->timestamps();
             });
         }

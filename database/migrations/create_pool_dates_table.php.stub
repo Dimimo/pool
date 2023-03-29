@@ -22,14 +22,10 @@ class CreatePoolDatesTable extends Migration
             {
                 $table->increments('id');
                 $table->date('date');
-                $table->boolean('regular')
-                    ->index();
-                $table->string('title')
-                    ->nullable();
-                $table->string('cycle', 7)
-                    ->index();
-                $table->text('remark')
-                    ->nullable();
+                $table->boolean('regular')->index();
+                $table->string('title')->nullable();
+                $table->string('cycle', 7)->index();
+                $table->text('remark')->nullable();
                 $table->timestamps();
             });
         }

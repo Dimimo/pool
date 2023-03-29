@@ -22,13 +22,9 @@ class CreatePoolTeamsTable extends Migration
             {
                 $table->increments('id');
                 $table->string('name');
-                $table->integer('pool_venue_id')
-                    ->unsigned()
-                    ->index();
-                $table->text('remark')
-                    ->nullable();
-                $table->string('cycle', 7)
-                    ->index();
+                $table->integer('pool_venue_id')->unsigned()->index();
+                $table->text('remark')->nullable();
+                $table->string('cycle', 7)->index();
                 $table->timestamps();
             });
         }
