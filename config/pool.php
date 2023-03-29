@@ -1,6 +1,7 @@
 <?php
 
-// config for Dimimo\Pool/Pool
+// config for Dimimo/Pool
 return [
-
+    'prefix'     => 'pool',
+    'middleware' => ['web'],
 ];
