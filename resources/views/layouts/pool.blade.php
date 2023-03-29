@@ -44,7 +44,7 @@
 
     <div class="row">
         <div class="col-12 align-center">
-            <img src="{{ Storage::disk('static')->url('img/pg-pool-league-202210.jpg') }}" width="100%" alt="Pool League logo">
+            <img src="{{ Storage::disk('static')->url('img/pg-pool-league-202303.jpg') }}" width="100%" alt="Pool League logo">
             @if (isset($cycles) && count($cycles) > 1)
                 <div class="row mr-1 mt-n5 mb-4">
                     <div class="col-8 offset-4 offset-md-9 col-md-3 offset-lg-10 col-lg-2 align-right">
@@ -64,7 +64,7 @@
             <div class="row p-2">
                 <div class="col-12 col-lg-4 align-center">
                     <div class="box-rounded-grey bigger-140">
-                        <a href="{{ route('pool.index') }}"><i class="fa-solid fa-list-ol blue smaller-80"></i> ##Competition Results</a>
+                        <a href="{{ route('pool.index') }}"><i class="fa-solid fa-list-ol blue smaller-80"></i> Competition Results</a>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 align-center">
