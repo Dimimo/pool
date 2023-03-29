@@ -1,5 +1,5 @@
 <?php
 
-use Dimimo\Pool\Pool\Tests\TestCase;
+use Dimimo\Pool\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

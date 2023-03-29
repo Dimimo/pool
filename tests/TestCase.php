@@ -1,10 +1,10 @@
 <?php
 
-namespace Dimimo\Pool\Pool\Tests;
+namespace Dimimo\Pool\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Dimimo\Pool\Pool\PoolServiceProvider;
+use Dimimo\Pool\PoolServiceProvider;
 
 class TestCase extends Orchestra
 {
