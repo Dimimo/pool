@@ -1,16 +1,16 @@
 <?php
 
-namespace Dimimo\Pool\Pool\Facades;
+namespace Dimimo\Pool\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Dimimo\Pool\Pool\Pool
+ * @see \Dimimo\Pool\Pool
  */
 class Pool extends Facade
 {
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
-        return \Dimimo\Pool\Pool\Pool::class;
+        return 'pool';
     }
 }

@@ -1,7 +1,8 @@
 <?php
 
-namespace Dimimo\Pool\Pool;
+namespace Dimimo\Pool;
 
 class Pool
 {
+    //
 }
