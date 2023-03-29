@@ -1,6 +1,6 @@
 <?php
 
-namespace Dimimo\Pool\Pool\Database\Factories;
+namespace Dimimo\Pool\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

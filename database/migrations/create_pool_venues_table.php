@@ -1,0 +1,51 @@
+<?php
+/**
+ *  Copyright (c) 2016-2021 Puerto Parrot. Written by Dimitri Mostrey for https// www.puertoparrot.com
+ *  Contact me at admin@puertoparrot.com or dmostrey@yahoo.com
+ */
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+
+class CreatePoolVenuesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up(): void
+    {
+        if ( ! Schema::hasTable('pool_venues'))
+        {
+            Schema::create('pool_venues', function (Blueprint $table)
+            {
+                $table->increments('id');
+                $table->string('name');
+                $table->string('address')
+                    ->nullable();
+                $table->string('contact_name')
+                    ->nullable();
+                $table->string('contact_nr')
+                    ->nullable();
+                $table->text('remark')
+                    ->nullable();
+                $table->decimal('lat', 12, 7)
+                    ->nullable();
+                $table->decimal('lng', 12, 7)
+                    ->nullable();
+                $table->timestamps();
+            });
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('pool_venues');
+    }
+}
