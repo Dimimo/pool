@@ -12,42 +12,40 @@ class PoolTeamsChart extends Chart
 {
     /**
      * Initializes the chart.
-     *
-     * @param int $number_of_teams
      */
     public function __construct(int $number_of_teams)
     {
         parent::__construct();
         $this->options([
-                           'maintainAspectRatio' => false,
-                           'scales'              => [
-                               'xAxes' => [
-                                   [
-                                       'scaleLabel' => [
-                                           'display'     => true,
-                                           'labelString' => 'Week',
-                                       ],
-                                       'ticks'      => [
-                                           'min' => 1,
-                                       ],
-                                   ],
-                               ],
-                               'yAxes' => [
-                                   [
-                                       'scaleLabel' => [
-                                           'display'     => true,
-                                           'labelString' => 'Position',
-                                       ],
-                                       'ticks'      => [
-                                           'beginAtZero' => true,
-                                           'mirror'      => false,
-                                           'min'         => 1,
-                                           'max'         => $number_of_teams,
-                                           'reverse'     => true,
-                                       ],
-                                   ],
-                               ],
-                           ],
-                       ]);
+            'maintainAspectRatio' => false,
+            'scales' => [
+                'xAxes' => [
+                    [
+                        'scaleLabel' => [
+                            'display' => true,
+                            'labelString' => 'Week',
+                        ],
+                        'ticks' => [
+                            'min' => 1,
+                        ],
+                    ],
+                ],
+                'yAxes' => [
+                    [
+                        'scaleLabel' => [
+                            'display' => true,
+                            'labelString' => 'Position',
+                        ],
+                        'ticks' => [
+                            'beginAtZero' => true,
+                            'mirror' => false,
+                            'min' => 1,
+                            'max' => $number_of_teams,
+                            'reverse' => true,
+                        ],
+                    ],
+                ],
+            ],
+        ]);
     }
 }

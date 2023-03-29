@@ -18,10 +18,9 @@ trait CalendarTrait
     private function getCalendar(): Collection
     {
         return PoolDate::cycle()->with([
-                                           'events' => function (HasMany $q)
-                                           {
-                                               return $q->with(['date', 'team_1', 'team_2']);
-                                           },
-                                       ])->orderBy('date')->get();
+            'events' => function (HasMany $q) {
+                return $q->with(['date', 'team_1', 'team_2']);
+            },
+        ])->orderBy('date')->get();
     }
 }

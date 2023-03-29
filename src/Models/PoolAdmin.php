@@ -22,6 +22,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null    $created_at
  * @property Carbon|null    $updated_at
  * @property-read User|null $user
+ *
  * @method static Builder|PoolAdmin newModelQuery()
  * @method static Builder|PoolAdmin newQuery()
  * @method static Builder|PoolAdmin query()
@@ -29,6 +30,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|PoolAdmin whereId($value)
  * @method static Builder|PoolAdmin whereUpdatedAt($value)
  * @method static Builder|PoolAdmin whereUserId($value)
+ *
  * @mixin Eloquent
  */
 class PoolAdmin extends Model
@@ -39,19 +41,22 @@ class PoolAdmin extends Model
      * @var string|null
      */
     protected $connection = 'mysql';
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
     protected $table = 'pool_admins';
+
     /**
      * @var array<string, string>
      */
     protected $casts = [
-        'user_id'  => 'integer',
+        'user_id' => 'integer',
         'database' => 'string',
     ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -61,6 +66,7 @@ class PoolAdmin extends Model
         'user_id',
         'database',
     ];
+
     /**
      * The attributes excluded from the model's JSON form.
      *

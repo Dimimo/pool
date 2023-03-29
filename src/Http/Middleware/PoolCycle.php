@@ -6,30 +6,22 @@
 
 namespace Dimimo\Pool\Http\Middleware;
 
-use Dimimo\Pool\Models\PoolDate;
 use Closure;
 use DB;
+use Dimimo\Pool\Models\PoolDate;
 use Illuminate\Http\Request;
 
 /**
  * Class PoolCycle
- *
- * @package App\Http\Middleware
  */
 class PoolCycle
 {
     /**
      * Handle an incoming request.
-     *
-     * @param Request $request
-     * @param Closure $next
-     *
-     * @return mixed
      */
     public function handle(Request $request, Closure $next): mixed
     {
-        if ( ! $request->session()->exists('cycle') || is_null($request->session()->get('cycle')))
-        {
+        if (! $request->session()->exists('cycle') || is_null($request->session()->get('cycle'))) {
             //when no cycle is in the session, put the most recent date cycle as a starting point
             $recent_date = DB::table('pool_dates')->orderBy('cycle', 'desc')->first();
             /** @var PoolDate $recent_date */

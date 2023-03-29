@@ -18,29 +18,21 @@ use Kris\LaravelFormBuilder\FormBuilder;
 
 /**
  * Trait PoolEventTrait
- *
- * @package App\Http\Controllers\Pool
  */
 trait PoolEventTrait
 {
-    /**
-     * @param FormBuilder $formBuilder
-     *
-     * @return RedirectResponse|View
-     */
     public function createEvent(FormBuilder $formBuilder): View|RedirectResponse
     {
-        if ( ! $this->hasAccess)
-        {
+        if (! $this->hasAccess) {
             return redirect()->route('pool.index')
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
         $date = PoolDate::cycle()->orderBy('date', 'desc')->first()->pluck('date');
         $form = $formBuilder->create('App\Http\Forms\PoolEventForm', [
-                                                                       'method' => 'POST',
-                                                                       'url'    => route('pool.date.store'),
-                                                                       'model'  => new PoolEvent(['date' => $date, 'cycle' => session('cycle')]),
-                                                                   ]);
+            'method' => 'POST',
+            'url' => route('pool.date.store'),
+            'model' => new PoolEvent(['date' => $date, 'cycle' => session('cycle')]),
+        ]);
         $form->add('submit', 'submit', ['label' => 'Create a new date', 'attr' => ['class' => 'btn btn-primary']]);
 
         return view('pool::date-create', compact('form'));
@@ -48,30 +40,22 @@ trait PoolEventTrait
 
     /**
      * Store the new event (game) and show the day overview
-     *
-     * @param Request $request
-     *
-     * @return RedirectResponse
      */
     public function storeEvent(Request $request): RedirectResponse
     {
-        if ( ! $this->hasAccess)
-        {
+        if (! $this->hasAccess) {
             return redirect()->route('pool.index')
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
         $form = $this->form(PoolEventForm::class);
-        if ( ! $form->isValid())
-        {
+        if (! $form->isValid()) {
             return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
         $data = $request->all();
         //automatically set the scores to 0-0 if it's the first playing week to avoid a bug at the overview page
         $team = PoolTeam::findOrFail($data['team1']);
-        if (is_null($data['score1']) && is_null($data['score2']))
-        {
-            if ($team->team_1()->count() === 0 && $team->team_2()->count() === 0)
-            {
+        if (is_null($data['score1']) && is_null($data['score2'])) {
+            if ($team->team_1()->count() === 0 && $team->team_2()->count() === 0) {
                 $data['score1'] = $data['score2'] = 0;
             }
         }
@@ -83,25 +67,19 @@ trait PoolEventTrait
 
     /**
      * Show the page to edit an existing event (game)
-     *
-     * @param FormBuilder $formBuilder
-     * @param int         $id
-     *
-     * @return RedirectResponse|View
      */
     public function editEvent(FormBuilder $formBuilder, int $id): View|RedirectResponse
     {
-        if ( ! $this->hasAccess)
-        {
+        if (! $this->hasAccess) {
             return redirect()->route('pool.index')
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
         $event = PoolEvent::findOrFail($id);
-        $form  = $formBuilder->create('App\Http\Forms\PoolEventForm', [
-                                                                        'method' => 'PUT',
-                                                                        'url'    => route('pool.event.update', [$event->id]),
-                                                                        'model'  => $event,
-                                                                    ]);
+        $form = $formBuilder->create('App\Http\Forms\PoolEventForm', [
+            'method' => 'PUT',
+            'url' => route('pool.event.update', [$event->id]),
+            'model' => $event,
+        ]);
         $form->add('submit', 'submit', ['label' => 'Update this event', 'attr' => ['class' => 'btn btn-primary']]);
 
         return view('pool::event-edit', compact('form', 'event'));
@@ -109,22 +87,15 @@ trait PoolEventTrait
 
     /**
      * Update the existing event
-     *
-     * @param Request $request
-     * @param int     $id
-     *
-     * @return RedirectResponse
      */
     public function updateEvent(Request $request, int $id): RedirectResponse
     {
-        if ( ! $this->hasAccess)
-        {
+        if (! $this->hasAccess) {
             return redirect()->route('pool.index')
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
         $form = $this->form(PoolEventForm::class);
-        if ( ! $form->isValid())
-        {
+        if (! $form->isValid()) {
             return redirect()->back()->withErrors($form->getErrors())->withInput();
         }
         $event = PoolEvent::findOrFail($id);
@@ -136,15 +107,12 @@ trait PoolEventTrait
     /**
      * Delete an event (game)
      *
-     * @param int $id
      *
-     * @return RedirectResponse
      * @throws Exception
      */
     public function deleteEvent(int $id): RedirectResponse
     {
-        if ( ! $this->hasAccess)
-        {
+        if (! $this->hasAccess) {
             return redirect()->route('pool.index')
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }

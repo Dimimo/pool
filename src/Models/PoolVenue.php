@@ -30,6 +30,7 @@ use Illuminate\Support\Carbon;
  * @property-read int|null               $events_count
  * @property-read Collection|PoolTeam[]  $teams
  * @property-read int|null               $teams_count
+ *
  * @method static Builder|PoolVenue newModelQuery()
  * @method static Builder|PoolVenue newQuery()
  * @method static Builder|PoolVenue query()
@@ -43,6 +44,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|PoolVenue whereName($value)
  * @method static Builder|PoolVenue whereRemark($value)
  * @method static Builder|PoolVenue whereUpdatedAt($value)
+ *
  * @mixin Eloquent
  */
 class PoolVenue extends Model
@@ -53,23 +55,26 @@ class PoolVenue extends Model
      * @var string|null
      */
     protected $connection = 'mysql';
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
     protected $table = 'pool_venues';
+
     /**
      * @var array<string, string>
      */
     protected $casts = [
-        'address'      => 'string',
+        'address' => 'string',
         'contact_name' => 'string',
-        'contact_nr'   => 'string',
-        'lat'          => 'decimal',
-        'lng'          => 'decimal',
-        'name'         => 'string',
+        'contact_nr' => 'string',
+        'lat' => 'decimal',
+        'lng' => 'decimal',
+        'name' => 'string',
     ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -84,6 +89,7 @@ class PoolVenue extends Model
         'name',
         'remark',
     ];
+
     /**
      * The attributes excluded from the model's JSON form.
      *

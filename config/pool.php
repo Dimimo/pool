@@ -2,6 +2,6 @@
 
 // config for Dimimo/Pool
 return [
-    'prefix'     => 'pool',
+    'prefix' => 'pool',
     'middleware' => ['web'],
 ];

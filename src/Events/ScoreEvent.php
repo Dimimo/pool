@@ -7,7 +7,6 @@
 namespace Dimimo\Pool\Events;
 
 use Dimimo\Pool\Models\PoolEvent;
-
 //use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
@@ -16,22 +15,16 @@ use Illuminate\Queue\SerializesModels;
 
 /**
  * Class ScoreEvent
- *
- * @package App\Events\Pool
  */
 class ScoreEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    /**
-     * @var PoolEvent $score
-     */
     public PoolEvent $score;
 
     /**
      * Create a new event instance.
      *
-     * @param PoolEvent $score
      *
      * @return void
      */
@@ -42,8 +35,6 @@ class ScoreEvent implements ShouldBroadcast
 
     /**
      * Get the channels the event should broadcast on.
-     *
-     * @return array
      */
     public function broadcastOn(): array
     {
@@ -52,8 +43,6 @@ class ScoreEvent implements ShouldBroadcast
 
     /**
      * The event's broadcast name.
-     *
-     * @return string
      */
     public function broadcastAs(): string
     {

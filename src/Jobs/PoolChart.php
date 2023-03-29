@@ -20,15 +20,11 @@ class PoolChart implements ShouldQueue
 
     /**
      * The current cycle we are working on (required)
-     *
-     * @var string
      */
     protected string $cycle;
 
     /**
      * Create a new job instance.
-     *
-     * @param string $cycle
      */
     public function __construct(string $cycle)
     {
@@ -38,7 +34,6 @@ class PoolChart implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @return void
      * @throws InvalidArgumentException
      */
     public function handle(): void

@@ -29,6 +29,7 @@ use Illuminate\Support\Carbon;
  * @property-read PoolTeam|null  $team_1
  * @property-read PoolTeam|null  $team_2
  * @property-read PoolVenue|null $venue
+ *
  * @method static Builder|PoolEvent newModelQuery()
  * @method static Builder|PoolEvent newQuery()
  * @method static Builder|PoolEvent query()
@@ -42,6 +43,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|PoolEvent whereTeam1($value)
  * @method static Builder|PoolEvent whereTeam2($value)
  * @method static Builder|PoolEvent whereUpdatedAt($value)
+ *
  * @mixin Eloquent
  */
 class PoolEvent extends Model
@@ -52,23 +54,26 @@ class PoolEvent extends Model
      * @var string|null
      */
     protected $connection = 'mysql';
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
     protected $table = 'pool_events';
+
     /**
      * @var array<string, string>
      */
     protected $casts = [
-        'pool_date_id'  => 'integer',
+        'pool_date_id' => 'integer',
         'pool_venue_id' => 'integer',
-        'team1'         => 'integer',
-        'team2'         => 'integer',
-        'score1'        => 'integer',
-        'score2'        => 'integer',
+        'team1' => 'integer',
+        'team2' => 'integer',
+        'score1' => 'integer',
+        'score2' => 'integer',
     ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -83,6 +88,7 @@ class PoolEvent extends Model
         'score2',
         'remark',
     ];
+
     /**
      * The relations to eager load on every query.
      *

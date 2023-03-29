@@ -11,8 +11,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 /**
  * Class ScoreListener
- *
- * @package App\Listeners\Pool
  */
 class ScoreEventListener implements ShouldQueue
 {

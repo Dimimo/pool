@@ -31,6 +31,7 @@ use Illuminate\Support\Carbon;
  * @property-read Collection|PoolEvent[]  $team_2
  * @property-read int|null                $team_2_count
  * @property-read PoolVenue|null          $venue
+ *
  * @method static Builder|PoolTeam cycle()
  * @method static Builder|PoolTeam newModelQuery()
  * @method static Builder|PoolTeam newQuery()
@@ -42,6 +43,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|PoolTeam wherePoolVenueId($value)
  * @method static Builder|PoolTeam whereRemark($value)
  * @method static Builder|PoolTeam whereUpdatedAt($value)
+ *
  * @mixin Eloquent
  */
 class PoolTeam extends Model
@@ -52,20 +54,23 @@ class PoolTeam extends Model
      * @var string|null
      */
     protected $connection = 'mysql';
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
     protected $table = 'pool_teams';
+
     /**
      * @var array<string, string>
      */
     protected $casts = [
-        'cycle'         => 'string',
-        'name'          => 'string',
+        'cycle' => 'string',
+        'name' => 'string',
         'pool_venue_id' => 'integer',
     ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -77,6 +82,7 @@ class PoolTeam extends Model
         'pool_venue_id',
         'remark',
     ];
+
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -86,10 +92,6 @@ class PoolTeam extends Model
 
     /**
      * Add the scope ->cycle($cycle)
-     *
-     * @param PoolTeam|Builder $query
-     *
-     * @return Builder
      */
     public function scopeCycle(PoolTeam|Builder $query): Builder
     {
@@ -99,10 +101,6 @@ class PoolTeam extends Model
     /**
      * Calculates the percentages of a given score table of a team
      * The results are to be found in CycleController@
-     *
-     * @param array $result
-     *
-     * @return float
      */
     public function percentage(array $result): float
     {
@@ -111,8 +109,6 @@ class PoolTeam extends Model
 
     /**
      * Return the captain of the team or null if there is no captain assigned
-     *
-     * @return PoolPlayer|null
      */
     public function captain(): ?PoolPlayer
     {

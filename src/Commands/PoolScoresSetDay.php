@@ -19,6 +19,7 @@ class PoolScoresSetDay extends Command
      * @var string
      */
     protected $signature = 'pool:scores';
+
     /**
      * The console command description.
      *
@@ -38,20 +39,17 @@ class PoolScoresSetDay extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return void
      */
     public function handle(): void
     {
         $today = Carbon::now()->format('Y-m-d');
         $dates = PoolDate::where('date', $today)->get();
-        foreach ($dates as $date)
-        {
+        foreach ($dates as $date) {
             PoolSetDayScores::dispatch($date);
         }
         $dates->count() ? $count = $dates->count() : $count = 'No';
         $message = "The daily Pool score for $today has been run. $count reset requests has been dispatched.";
-        \Log::info('[PoolScoreSetDay] ' . $message);
+        \Log::info('[PoolScoreSetDay] '.$message);
         $this->comment($message);
     }
 }

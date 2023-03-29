@@ -2,9 +2,9 @@
 
 namespace Dimimo\Pool\Tests;
 
+use Dimimo\Pool\PoolServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Dimimo\Pool\PoolServiceProvider;
 
 class TestCase extends Orchestra
 {

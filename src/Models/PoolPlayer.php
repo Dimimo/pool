@@ -28,6 +28,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null        $updated_at
  * @property-read PoolTeam|null $team
  * @property-read User|null     $user
+ *
  * @method static Builder|PoolPlayer cycle()
  * @method static Builder|PoolPlayer newModelQuery()
  * @method static Builder|PoolPlayer newQuery()
@@ -42,6 +43,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|PoolPlayer wherePoolTeamId($value)
  * @method static Builder|PoolPlayer whereUpdatedAt($value)
  * @method static Builder|PoolPlayer whereUserId($value)
+ *
  * @mixin Eloquent
  */
 class PoolPlayer extends Model
@@ -52,23 +54,26 @@ class PoolPlayer extends Model
      * @var string|null
      */
     protected $connection = 'mysql';
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
     protected $table = 'pool_players';
+
     /**
      * @var array<string, string>
      */
     protected $casts = [
-        'user_id'      => 'integer',
-        'name'         => 'string',
+        'user_id' => 'integer',
+        'name' => 'string',
         'pool_team_id' => 'integer',
-        'captain'      => 'boolean',
-        'contact_nr'   => 'string',
-        'cycle'        => 'string',
+        'captain' => 'boolean',
+        'contact_nr' => 'string',
+        'cycle' => 'string',
     ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -83,6 +88,7 @@ class PoolPlayer extends Model
         'contact_nr',
         'cycle',
     ];
+
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -92,10 +98,6 @@ class PoolPlayer extends Model
 
     /**
      * Add the scope ->cycle($cycle)
-     *
-     * @param Builder|PoolPlayer $query
-     *
-     * @return Builder
      */
     public function scopeCycle(Builder|PoolPlayer $query): Builder
     {

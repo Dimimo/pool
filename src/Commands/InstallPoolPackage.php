@@ -8,24 +8,21 @@ use Illuminate\Support\Facades\File;
 class InstallPoolPackage extends Command
 {
     protected $signature = 'pool:install';
+
     protected $description = 'Install the Pool Package';
 
     public function handle()
     {
         $this->info('Installing the Pool Package...');
         $this->info('Publishing configuration...');
-        if ( ! $this->configExists())
-        {
+        if (! $this->configExists()) {
             $this->publishConfiguration();
             $this->info('Published configuration');
-        } else
-        {
-            if ($this->shouldOverwriteConfig())
-            {
+        } else {
+            if ($this->shouldOverwriteConfig()) {
                 $this->info('Overwriting configuration file...');
                 $this->publishConfiguration(true);
-            } else
-            {
+            } else {
                 $this->info('Existing configuration was not overwritten');
             }
         }
@@ -41,10 +38,9 @@ class InstallPoolPackage extends Command
     {
         $params = [
             '--provider' => "Dimimo\Pool\PoolServiceProvider",
-            '--tag'      => "config",
+            '--tag' => 'config',
         ];
-        if ($force === true)
-        {
+        if ($force === true) {
             $params['--force'] = true;
         }
         $this->call('vendor:publish', $params);

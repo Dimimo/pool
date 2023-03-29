@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|PoolScore newModelQuery()
  * @method static Builder|PoolScore newQuery()
  * @method static Builder|PoolScore query()
+ *
  * @mixin Eloquent
  */
 class PoolScore extends Model

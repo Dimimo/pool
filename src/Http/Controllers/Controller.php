@@ -3,11 +3,11 @@
 namespace Dimimo\Pool\Http\Controllers;
 
 use Auth;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Session;
 use View;
 
@@ -17,21 +17,17 @@ class Controller extends BaseController
 
     /**
      * The current cycle (f.ex. 2023/03)
-     *
-     * @var string|null $cycle
      */
     public ?string $cycle;
+
     /**
      * A public bool to determine if somebody has editor access, can be accessed in the view
-     *
-     * @var bool $hasAccess
      */
     public bool $hasAccess = false;
+
     /**
      * The user id's that have editor access
      * Names represent Dimitri, Richard and James
-     *
-     * @var array $userIds
      */
     protected array $userIds = [1, 9, 1053];
 
@@ -41,13 +37,10 @@ class Controller extends BaseController
     public function __construct()
     {
         $this->middleware('PoolCycle');
-        $this->middleware(function (Request $request, $next)
-        {
-            if (Auth::check())
-            {
+        $this->middleware(function (Request $request, $next) {
+            if (Auth::check()) {
                 $id = Auth::id();
-                if (in_array($id, $this->userIds))
-                {
+                if (in_array($id, $this->userIds)) {
                     $this->hasAccess = true;
                 }
             }
