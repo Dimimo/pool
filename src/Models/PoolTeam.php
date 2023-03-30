@@ -10,12 +10,12 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Belongsto;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
- * App\Models\PoolTeam
+ * Dimimo\Pool\Models\PoolTeam
  *
  * @property int                          $id
  * @property string                       $name
@@ -134,9 +134,9 @@ class PoolTeam extends Model
     /**
      * A team has one venue
      *
-     * @return Belongsto<PoolVenue, PoolTeam>
+     * @return BelongsTo<PoolVenue, PoolTeam>
      */
-    public function venue(): Belongsto
+    public function venue(): BelongsTo
     {
         return $this->belongsTo(PoolVenue::class, 'pool_venue_id');
     }

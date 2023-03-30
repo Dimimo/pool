@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\PoolScore
+ * Dimimo\Pool\Models\PoolScore
  *
  * @method static Builder|PoolScore newModelQuery()
  * @method static Builder|PoolScore newQuery()

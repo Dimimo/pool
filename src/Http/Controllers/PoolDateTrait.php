@@ -33,7 +33,7 @@ trait PoolDateTrait
             session()->put('cycle', $date->cycle);
         }
         $teams = PoolTeam::cycle()->orderBy('name')->get()->pluck('pool_venue_id', 'id')->toJson();
-        $form = $formBuilder->create('App\Http\Forms\PoolEventForm', [
+        $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolEventForm', [
             'method' => 'POST',
             'url' => route('pool.event.store'),
             'model' => new PoolEvent(['cycle' => session('cycle'), 'pool_date_id' => $date->id]),
@@ -52,7 +52,7 @@ trait PoolDateTrait
             return redirect()->route('pool.index')
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
-        $form = $formBuilder->create('App\Http\Forms\PoolDateForm', [
+        $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolDateForm', [
             'method' => 'POST',
             'url' => route('pool.date.store'),
             'model' => new PoolDate(['regular' => '0', 'cycle' => session('cycle')]),
@@ -198,7 +198,7 @@ trait PoolDateTrait
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
         $date = PoolDate::findOrFail($id);
-        $form = $formBuilder->create('App\Http\Forms\PoolDateForm', [
+        $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolDateForm', [
             'method' => 'POST',
             'url' => route('pool.date.update'),
             'model' => $date,
@@ -284,7 +284,7 @@ trait PoolDateTrait
         $dates = $this->getCalendar();
         $forms = collect();
         foreach ($dates as $date) {
-            $form = $formBuilder->create('App\Http\Forms\PoolDatesForm', [
+            $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolDatesForm', [
                 'method' => 'PUT',
                 'class' => 'form-inline',
                 'url' => route('pool.date.update', [$date->id]),

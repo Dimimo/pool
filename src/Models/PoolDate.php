@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
- * App\Models\PoolDate
+ * Dimimo\Pool\Models\PoolDate
  *
  * @property int                         $id
  * @property Carbon                      $date

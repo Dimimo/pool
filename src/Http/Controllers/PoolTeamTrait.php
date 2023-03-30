@@ -39,7 +39,7 @@ trait PoolTeamTrait
             return redirect()->route('pool.index')
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
-        $form = $formBuilder->create('App\Http\Forms\PoolTeamForm', [
+        $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolTeamForm', [
             'method' => 'POST',
             'url' => route('pool.team.store'),
             'model' => new PoolTeam(['pool_venue_id' => $venue_id, 'cycle' => session('cycle')]),
@@ -84,7 +84,7 @@ trait PoolTeamTrait
                 return $q->orderBy('captain', 'desc')->orderBy('name');
             },
         ])->findOrFail($id);
-        $form = $formBuilder->create('App\Http\Forms\PoolTeamForm', [
+        $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolTeamForm', [
             'method' => 'PUT',
             'url' => route('pool.team.update', [$team->id]),
             'model' => $team,

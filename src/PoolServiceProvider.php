@@ -65,8 +65,13 @@ class PoolServiceProvider extends BaseServiceProvider
 
     protected function registerRoutes()
     {
+        // Web routes
         Route::group($this->routeConfiguration(), function () {
             $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        });
+        // Api/Pool routes
+        Route::group(['middleware' => 'api'], function () {
+            $this->loadRoutesFrom(__DIR__.'/../routes/pool_api.php');
         });
     }
 
