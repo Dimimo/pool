@@ -19,8 +19,6 @@ class Event extends JsonResource
      * Transform the resource into an array.
      *
      * @param Request $request
-     *
-     * @return array|callable|null
      */
     public function toArray($request): array|callable|null
     {

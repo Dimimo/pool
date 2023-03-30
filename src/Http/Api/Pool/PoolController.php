@@ -11,20 +11,13 @@ use Illuminate\Http\Request;
 
 /**
  * Class PoolController
- *
- * @package Dimimo\Pool\Http\Controllers\Api\Pool
  */
 class PoolController extends Controller
 {
-    /**
-     * @var string|null
-     */
     protected ?string $season;
 
     /**
      * PoolController constructor.
-     *
-     * @param Request $request
      */
     public function __construct(Request $request)
     {

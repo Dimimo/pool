@@ -7,16 +7,14 @@
 namespace Dimimo\Pool\Http\Controllers\Api\Pool;
 
 use Dimimo\Pool\Http\Controllers\CalendarTrait;
-use Dimimo\Pool\Models\PoolTeam;
 use Dimimo\Pool\Http\Resources\TeamCollection;
 use Dimimo\Pool\Http\Resources\TeamSchedule as TeamScheduleResource;
+use Dimimo\Pool\Models\PoolTeam;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 
 /**
  * Class TeamController
- *
- * @package Dimimo\Pool\Http\Controllers\Api\Pool
  */
 class TeamController extends PoolController
 {
@@ -24,8 +22,6 @@ class TeamController extends PoolController
 
     /**
      * Collect all teams with venue and players for the chosen season
-     *
-     * @return TeamCollection
      */
     public function index(): TeamCollection
     {
@@ -36,10 +32,6 @@ class TeamController extends PoolController
 
     /**
      * Show the team, address, players and schedule (calendar)
-     *
-     * @param int $team_id
-     *
-     * @return TeamScheduleResource
      */
     public function show(int $team_id): TeamScheduleResource
     {
@@ -58,10 +50,6 @@ class TeamController extends PoolController
 
     /**
      * Get the calendar for the specific team, filter out the respective data
-     *
-     * @param int $team_id
-     *
-     * @return Collection
      */
     private function getSchedule(int $team_id): Collection
     {

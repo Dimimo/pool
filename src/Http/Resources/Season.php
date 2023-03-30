@@ -8,8 +8,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * Class Season
- *
- * @package App\Http\Resources\Pool
  */
 class Season extends JsonResource
 {
@@ -17,8 +15,6 @@ class Season extends JsonResource
      * Transform the resource into an array.
      *
      * @param Request $request
-     *
-     * @return array
      */
     public function toArray($request): array
     {

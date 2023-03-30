@@ -3,12 +3,11 @@
  *  Copyright (c) 2016-2021 Puerto Parrot. Written by Dimitri Mostrey for https// www.puertoparrot.com
  *  Contact me at admin@puertoparrot.com or dmostrey@yahoo.com
  */
-
 $api    = app('Dingo\Api\Routing\Router');
 $prefix = 'App\Http\Controllers\Api\Pool\\';
-$api->version('v1', function (\Dingo\Api\Routing\Router $api) use ($prefix)
+$api->version('v1', function (Dingo\Api\Routing\Router $api) use ($prefix)
 {
-    $api->group(['prefix' => 'pool'], function (\Dingo\Api\Routing\Router $api) use ($prefix)
+    $api->group(['prefix' => 'pool'], function (Dingo\Api\Routing\Router $api) use ($prefix)
     {
         $api->get('get_seasons', ['as' => 'api.pool.seasons', 'uses' => $prefix . 'SeasonController@getAllSeasons']);
         $api->post('change_season', ['as' => 'api.pool.season', 'uses' => $prefix . 'SeasonController@changeSeason']);
