@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\Belongsto;
 use Illuminate\Support\Carbon;
 
 /**
- * App\Models\PoolEvent
+ * Dimimo\Pool\Models\PoolEvent
  *
  * @property int                 $id
  * @property int                 $pool_date_id

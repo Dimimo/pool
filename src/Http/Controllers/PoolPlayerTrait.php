@@ -26,7 +26,7 @@ trait PoolPlayerTrait
             return redirect()->route('pool.index')
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
-        $form = $formBuilder->create('App\Http\Forms\PoolPlayerForm', [
+        $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolPlayerForm', [
             'method' => 'POST',
             'url' => route('pool.player.store'),
             'model' => new PoolPlayer(['cycle' => session('cycle')]),
@@ -64,7 +64,7 @@ trait PoolPlayerTrait
                 return $q->orderBy('captain', 'desc')->orderBy('name', 'asc');
             },
         ])->findOrFail($team);
-        $new = $formBuilder->create('App\Http\Forms\PoolPlayerForm', [
+        $new = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolPlayerForm', [
             'method' => 'POST',
             'url' => route('pool.player.store'),
             'model' => new PoolPlayer(['pool_team_id' => $team->id, 'cycle' => session('cycle')]),
@@ -72,7 +72,7 @@ trait PoolPlayerTrait
         $new->add('submit', 'submit', ['label' => 'Create this player', 'attr' => ['class' => 'btn btn-primary']]);
         $forms = collect();
         foreach ($team->players as $player) {
-            $form = $formBuilder->create('App\Http\Forms\PoolPlayerForm', [
+            $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolPlayerForm', [
                 'method' => 'PUT',
                 'url' => route('pool.player.update', [$player->id]),
                 'model' => $player,

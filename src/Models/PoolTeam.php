@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
- * App\Models\PoolTeam
+ * Dimimo\Pool\Models\PoolTeam
  *
  * @property int                          $id
  * @property string                       $name

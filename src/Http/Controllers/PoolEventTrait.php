@@ -28,7 +28,7 @@ trait PoolEventTrait
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
         $date = PoolDate::cycle()->orderBy('date', 'desc')->first()->pluck('date');
-        $form = $formBuilder->create('App\Http\Forms\PoolEventForm', [
+        $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolEventForm', [
             'method' => 'POST',
             'url' => route('pool.date.store'),
             'model' => new PoolEvent(['date' => $date, 'cycle' => session('cycle')]),
@@ -75,7 +75,7 @@ trait PoolEventTrait
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
         $event = PoolEvent::findOrFail($id);
-        $form = $formBuilder->create('App\Http\Forms\PoolEventForm', [
+        $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolEventForm', [
             'method' => 'PUT',
             'url' => route('pool.event.update', [$event->id]),
             'model' => $event,

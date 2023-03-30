@@ -35,7 +35,7 @@ trait PoolVenueTrait
             return redirect()->route('pool.index')
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
-        $form = $formBuilder->create('App\Http\Forms\PoolVenueForm', [
+        $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolVenueForm', [
             'method' => 'POST',
             'url' => route('pool.venue.store'),
             'model' => new PoolVenue(),
@@ -64,7 +64,7 @@ trait PoolVenueTrait
                 ->with(['error' => 'You have no access to this page, if you believe this is an error, you should login first']);
         }
         $venue = PoolVenue::findOrFail($id);
-        $form = $formBuilder->create('App\Http\Forms\PoolVenueForm', [
+        $form = $formBuilder->create('Dimimo\Pool\Http\Forms\PoolVenueForm', [
             'method' => 'PUT',
             'url' => route('pool.venue.update', [$venue->id]),
             'model' => $venue,

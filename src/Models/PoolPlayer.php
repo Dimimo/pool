@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\Belongsto;
 use Illuminate\Support\Carbon;
 
 /**
- * App\Models\PoolPlayer
+ * Dimimo\Pool\Models\PoolPlayer
  *
  * @property int                $id
  * @property int|null           $user_id
