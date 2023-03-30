@@ -18,17 +18,17 @@ class Event extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
+     * @param  Request  $request
      */
     public function toArray($request): array|callable|null
     {
         /** @var $this PoolEvent */
         return [
-            'id'     => $this->id,
+            'id' => $this->id,
             'score1' => $this->score1,
             'score2' => $this->score2,
-            'date'   => new DateResource($this->date),
-            'venue'  => new VenueResource($this->venue),
+            'date' => new DateResource($this->date),
+            'venue' => new VenueResource($this->venue),
             'team_1' => new TeamResource($this->team_1),
             'team_2' => new TeamResource($this->team_2),
         ];

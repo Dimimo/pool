@@ -16,18 +16,18 @@ class Calendar extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
+     * @param  Request  $request
      */
     public function toArray($request): array
     {
         /** @var $this PoolDate */
         return [
-            'id'      => $this->id,
-            'date'    => $this->date->format('jS \o\f M Y'),
+            'id' => $this->id,
+            'date' => $this->date->format('jS \o\f M Y'),
             'regular' => $this->regular,
-            'title'   => $this->title,
-            'remark'  => $this->remark,
-            'events'  => $this->when($this->events, EventResource::collection($this->events)),
+            'title' => $this->title,
+            'remark' => $this->remark,
+            'events' => $this->when($this->events, EventResource::collection($this->events)),
         ];
     }
 }

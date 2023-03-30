@@ -21,11 +21,10 @@ class CalendarController extends PoolController
     public function calendar(): CalendarCollection
     {
         $calendar = PoolDate::cycle()->with([
-                                                'events' => function (HasMany $q)
-                                                {
-                                                    return $q->with(['venue', 'date', 'team_1', 'team_2']);
-                                                },
-                                            ])->orderBy('date')->get();
+            'events' => function (HasMany $q) {
+                return $q->with(['venue', 'date', 'team_1', 'team_2']);
+            },
+        ])->orderBy('date')->get();
 
         return new CalendarCollection($calendar);
     }

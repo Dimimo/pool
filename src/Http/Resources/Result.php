@@ -15,24 +15,24 @@ class Result extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
+     * @param  Request  $request
      */
     public function toArray($request): array
     {
         /** @var $this ResultCollection */
         return [
-            'team'          => new TeamResource($this->team),
-            'played'        => new TeamResource($this->played),
-            'won'           => $this->won,
-            'lost'          => $this->lost,
-            'for'           => $this->for,
-            'against'       => $this->against,
-            'games_played'  => $this->games_played,
-            'last_result'   => $this->last_result,
+            'team' => new TeamResource($this->team),
+            'played' => new TeamResource($this->played),
+            'won' => $this->won,
+            'lost' => $this->lost,
+            'for' => $this->for,
+            'against' => $this->against,
+            'games_played' => $this->games_played,
+            'last_result' => $this->last_result,
             'last_game_won' => $this->last_game_won,
-            'percentage'    => $this->percentage,
-            'rank'          => $this->rank,
-            'max_games'     => $this->max_games,
+            'percentage' => $this->percentage,
+            'rank' => $this->rank,
+            'max_games' => $this->max_games,
         ];
     }
 }

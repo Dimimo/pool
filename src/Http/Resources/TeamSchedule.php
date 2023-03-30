@@ -19,7 +19,7 @@ class TeamSchedule extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
+     * @param  Request  $request
      */
     public function toArray($request): array
     {
@@ -27,7 +27,7 @@ class TeamSchedule extends JsonResource
         $team = $this->shift();
 
         return [
-            'team'     => new TeamResource($team),
+            'team' => new TeamResource($team),
             'calendar' => new EventCollection($this),
         ];
     }

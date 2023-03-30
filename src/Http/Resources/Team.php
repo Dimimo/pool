@@ -16,17 +16,17 @@ class Team extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
+     * @param  Request  $request
      */
     public function toArray($request): array
     {
         /** @var $this PoolTeam */
         return [
-            'id'      => $this->id,
-            'name'    => $this->name,
-            'venue'   => $this->when($this->venue, new VenueResource($this->venue)),
+            'id' => $this->id,
+            'name' => $this->name,
+            'venue' => $this->when($this->venue, new VenueResource($this->venue)),
             'players' => $this->when($this->players, new PlayerCollection($this->players)),
-            'remark'  => $this->remark,
+            'remark' => $this->remark,
         ];
     }
 }

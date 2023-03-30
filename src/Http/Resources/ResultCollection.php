@@ -15,21 +15,31 @@ class ResultCollection extends ResourceCollection
     public PoolTeam $team;
 
     public PoolTeam $played;
+
     public int      $won;
+
     public int      $lost;
+
     public int      $for;
+
     public int      $against;
+
     public int      $games_played;
+
     public string   $last_result;
+
     public bool     $last_game_won;
+
     public int      $percentage;
+
     public int      $rank;
+
     public int      $max_games;
 
     /**
      * Transform the resource collection into an array.
      *
-     * @param Request $request
+     * @param  Request  $request
      */
     public function toArray($request): array
     {

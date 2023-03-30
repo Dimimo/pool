@@ -36,13 +36,12 @@ class TeamController extends PoolController
     public function show(int $team_id): TeamScheduleResource
     {
         $calendar = $this->getSchedule($team_id);
-        $team     = PoolTeam::with([
-                                       'venue',
-                                       'players' => function (HasMany $q)
-                                       {
-                                           return $q->orderBy('captain', 'desc')->orderBy('name');
-                                       },
-                                   ])->findOrFail($team_id);
+        $team = PoolTeam::with([
+            'venue',
+            'players' => function (HasMany $q) {
+                return $q->orderBy('captain', 'desc')->orderBy('name');
+            },
+        ])->findOrFail($team_id);
         $calendar->prepend($team);
 
         return new TeamScheduleResource($calendar);
@@ -53,14 +52,11 @@ class TeamController extends PoolController
      */
     private function getSchedule(int $team_id): Collection
     {
-        $dates    = $this->getCalendar();
+        $dates = $this->getCalendar();
         $calendar = collect();
-        foreach ($dates as $date)
-        {
-            foreach ($date->events as $event)
-            {
-                if ($event->team_1->id === $team_id || $event->team_2->id === $team_id)
-                {
+        foreach ($dates as $date) {
+            foreach ($date->events as $event) {
+                if ($event->team_1->id === $team_id || $event->team_2->id === $team_id) {
                     $calendar->push($event);
                 }
             }
