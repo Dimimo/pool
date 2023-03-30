@@ -11,8 +11,6 @@ use Dimimo\Pool\Http\Resources\ResultCollection;
 
 /**
  * Class ResultsController
- *
- * @package Dimimo\Pool\Http\Controllers\Api\Pool
  */
 class ResultsController extends PoolController
 {
@@ -20,8 +18,6 @@ class ResultsController extends PoolController
 
     /**
      * Calculate the results and return the collection
-     *
-     * @return ResultCollection
      */
     public function results(): ResultCollection
     {

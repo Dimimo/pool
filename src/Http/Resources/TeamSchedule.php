@@ -13,17 +13,13 @@ use Illuminate\Support\Collection;
 
 /**
  * Class TeamSchedule
- *
- * @package App\Http\Resources\Pool
  */
 class TeamSchedule extends JsonResource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
-     *
-     * @return array
+     * @param  Request  $request
      */
     public function toArray($request): array
     {
@@ -31,7 +27,7 @@ class TeamSchedule extends JsonResource
         $team = $this->shift();
 
         return [
-            'team'     => new TeamResource($team),
+            'team' => new TeamResource($team),
             'calendar' => new EventCollection($this),
         ];
     }

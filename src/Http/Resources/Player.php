@@ -15,17 +15,15 @@ class Player extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
-     *
-     * @return array
+     * @param  Request  $request
      */
     public function toArray($request): array
     {
         /** @var $this PoolPlayer */
         return [
-            'id'      => $this->id,
-            'name'    => $this->name,
-            'phone'   => $this->contact_nr,
+            'id' => $this->id,
+            'name' => $this->name,
+            'phone' => $this->contact_nr,
             'captain' => (bool) $this->captain,
         ];
     }

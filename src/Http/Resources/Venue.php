@@ -15,20 +15,18 @@ class Venue extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param Request $request
-     *
-     * @return array
+     * @param  Request  $request
      */
     public function toArray($request): array
     {
         /** @var $this PoolVenue */
         return [
-            'id'      => $this->id,
-            'name'    => $this->name,
+            'id' => $this->id,
+            'name' => $this->name,
             'address' => $this->address,
-            'owner'   => $this->contact_name,
-            'phone'   => $this->contact_nr,
-            'remark'  => $this->remark,
+            'owner' => $this->contact_name,
+            'phone' => $this->contact_nr,
+            'remark' => $this->remark,
         ];
     }
 }

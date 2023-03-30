@@ -11,17 +11,13 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 /**
  * Class TeamCollection
- *
- * @package App\Http\Resources\Pool
  */
 class TeamCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
      *
-     * @param Request $request
-     *
-     * @return array
+     * @param  Request  $request
      */
     public function toArray($request): array
     {
