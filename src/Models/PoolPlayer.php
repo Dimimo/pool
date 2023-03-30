@@ -10,7 +10,7 @@ use App\Models\User;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Belongsto;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
@@ -107,9 +107,9 @@ class PoolPlayer extends Model
     /**
      * A player belongs to a team (!make sure to filter on cycle!)
      *
-     * @return Belongsto<PoolTeam, PoolPlayer>
+     * @return BelongsTo<PoolTeam, PoolPlayer>
      */
-    public function team(): Belongsto
+    public function team(): BelongsTo
     {
         return $this->belongsTo(PoolTeam::class, 'pool_team_id', 'id');
     }
@@ -117,9 +117,9 @@ class PoolPlayer extends Model
     /**
      * A player belongs to a user (only needed if captain and life scores are introduced)
      *
-     * @return Belongsto<User, PoolPlayer>
+     * @return BelongsTo<User, PoolPlayer>
      */
-    public function user(): Belongsto
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }

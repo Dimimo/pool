@@ -9,7 +9,7 @@ namespace Dimimo\Pool\Models;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Belongsto;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
@@ -99,9 +99,9 @@ class PoolEvent extends Model
     /**
      * An event belongs to a date
      *
-     * @return Belongsto<PoolDate, PoolEvent>
+     * @return BelongsTo<PoolDate, PoolEvent>
      */
-    public function date(): Belongsto
+    public function date(): BelongsTo
     {
         return $this->belongsTo(PoolDate::class, 'pool_date_id', 'id');
     }
@@ -109,9 +109,9 @@ class PoolEvent extends Model
     /**
      * An event belongs to a venue
      *
-     * @return Belongsto<PoolVenue, PoolEvent>
+     * @return BelongsTo<PoolVenue, PoolEvent>
      */
-    public function venue(): Belongsto
+    public function venue(): BelongsTo
     {
         return $this->belongsTo(PoolVenue::class, 'pool_venue_id', 'id');
     }
@@ -119,9 +119,9 @@ class PoolEvent extends Model
     /**
      * An event belongs to team 1
      *
-     * @return Belongsto<PoolTeam, PoolEvent>
+     * @return BelongsTo<PoolTeam, PoolEvent>
      */
-    public function team_1(): Belongsto
+    public function team_1(): BelongsTo
     {
         return $this->belongsTo(PoolTeam::class, 'team1', 'id');
     }
@@ -129,9 +129,9 @@ class PoolEvent extends Model
     /**
      * An event belongs to team 2
      *
-     * @return Belongsto<PoolTeam, PoolEvent>
+     * @return BelongsTo<PoolTeam, PoolEvent>
      */
-    public function team_2(): Belongsto
+    public function team_2(): BelongsTo
     {
         return $this->belongsTo(PoolTeam::class, 'team2', 'id');
     }

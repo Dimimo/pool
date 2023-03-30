@@ -10,7 +10,7 @@ use App\Models\User;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Belongsto;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
@@ -77,9 +77,9 @@ class PoolAdmin extends Model
     /**
      * An admin belongs to a user
      *
-     * @return Belongsto<User, PoolAdmin>
+     * @return BelongsTo<User, PoolAdmin>
      */
-    public function user(): Belongsto
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
