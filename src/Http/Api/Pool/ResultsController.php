@@ -4,7 +4,7 @@
  *  Contact me at admin@puertoparrot.com or dmostrey@yahoo.com
  */
 
-namespace Dimimo\Pool\http\Api\Pool;
+namespace Dimimo\Pool\Http\Api\Pool;
 
 use Dimimo\Pool\Http\Controllers\ResultsTrait;
 use Dimimo\Pool\Http\Resources\ResultCollection;
