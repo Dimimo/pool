@@ -36,7 +36,7 @@ class PoolServiceProvider extends BaseServiceProvider
             // Publish views
             $this->publishes([__DIR__.'/../resources/views' => resource_path('views/vendor/pool')], 'views');
             // Publish assets
-            $this->publishes([__DIR__.'/../resources/assets' => public_path('pool')], 'assets');
+            $this->publishes([__DIR__.'/../resources/assets' => public_path('js')], 'assets');
             // Publish commands
             $this->commands([InstallPoolPackage::class, PoolScoresSetDay::class]);
             // Schedule the command if we are using the application via the CLI
@@ -51,7 +51,6 @@ class PoolServiceProvider extends BaseServiceProvider
                     __DIR__.'/../database/migrations/create_pool_dates_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_pool_dates_table.php'),
                     __DIR__.'/../database/migrations/create_pool_events_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_pool_events_table.php'),
                     __DIR__.'/../database/migrations/create_pool_players_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_pool_players_table.php'),
-                    __DIR__.'/../database/migrations/create_pool_scores_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_pool_scores_table.php'),
                     __DIR__.'/../database/migrations/create_pool_teams_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_pool_teams_table.php'),
                     __DIR__.'/../database/migrations/create_pool_venues_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_pool_venues_table.php'),
                 ], 'migrations');
