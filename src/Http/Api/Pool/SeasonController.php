@@ -1,6 +1,6 @@
 <?php
 
-namespace Dimimo\Pool\Http\Controllers\Api\Pool;
+namespace Dimimo\Pool\http\Api\Pool;
 
 use Dimimo\Pool\Http\Resources\SeasonCollection;
 use Dimimo\Pool\Models\PoolDate;
