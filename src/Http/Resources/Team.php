@@ -11,6 +11,7 @@ use Dimimo\Pool\Models\PoolTeam;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/** @mixin PoolTeam */
 class Team extends JsonResource
 {
     /**
@@ -20,7 +21,6 @@ class Team extends JsonResource
      */
     public function toArray($request): array
     {
-        /** @var $this PoolTeam */
         return [
             'id' => $this->id,
             'name' => $this->name,

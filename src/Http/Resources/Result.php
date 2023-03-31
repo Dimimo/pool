@@ -10,6 +10,7 @@ use Dimimo\Pool\Http\Resources\Team as TeamResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/** @mixin ResultCollection */
 class Result extends JsonResource
 {
     /**
@@ -19,7 +20,6 @@ class Result extends JsonResource
      */
     public function toArray($request): array
     {
-        /** @var $this ResultCollection */
         return [
             'team' => new TeamResource($this->team),
             'played' => new TeamResource($this->played),

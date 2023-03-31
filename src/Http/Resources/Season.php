@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * Class Season
+ * @mixin PoolDate
  */
 class Season extends JsonResource
 {
@@ -18,7 +18,6 @@ class Season extends JsonResource
      */
     public function toArray($request): array
     {
-        /** @var $this PoolDate */
         return [
             'season' => $this->cycle,
         ];

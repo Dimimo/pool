@@ -10,6 +10,7 @@ use Dimimo\Pool\Models\PoolDate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/** @mixin PoolDate */
 class Date extends JsonResource
 {
     /**
@@ -19,7 +20,6 @@ class Date extends JsonResource
      */
     public function toArray($request): array
     {
-        /** @var $this PoolDate */
         return [
             'id' => $this->id,
             'date' => $this->date->format('jS \o\f M Y'),

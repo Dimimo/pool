@@ -12,7 +12,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
 
 /**
- * Class TeamSchedule
+ * @mixin Collection
  */
 class TeamSchedule extends JsonResource
 {
@@ -23,7 +23,6 @@ class TeamSchedule extends JsonResource
      */
     public function toArray($request): array
     {
-        /** @var $this Collection */
         $team = $this->shift();
 
         return [

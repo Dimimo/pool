@@ -13,6 +13,7 @@ use Dimimo\Pool\Models\PoolEvent;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/** @mixin PoolEvent */
 class Event extends JsonResource
 {
     /**
@@ -22,7 +23,6 @@ class Event extends JsonResource
      */
     public function toArray($request): array|callable|null
     {
-        /** @var $this PoolEvent */
         return [
             'id' => $this->id,
             'score1' => $this->score1,

@@ -10,6 +10,7 @@ use Dimimo\Pool\Models\PoolPlayer;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/** @mixin PoolPlayer */
 class Player extends JsonResource
 {
     /**
@@ -19,7 +20,6 @@ class Player extends JsonResource
      */
     public function toArray($request): array
     {
-        /** @var $this PoolPlayer */
         return [
             'id' => $this->id,
             'name' => $this->name,
