@@ -1,0 +1,20 @@
+/*!
+ *  Copyright (c) 2016-2021 Puerto Parrot. Written by Dimitri Mostrey for https// www.puertoparrot.com
+ *  Contact me at admin@puertoparrot.com or dmostrey@yahoo.com
+ */
+
+/*! laravel-echo */
+
+/*! pusher-js */
+
+/*!******************************!*\
+      !*** ./resources/js/pool.js ***!
+      \******************************/
+
+/*!************************************************!*\
+      !*** ./node_modules/laravel-echo/dist/echo.js ***!
+      \************************************************/
+
+/*!***************************************************!*\
+      !*** ./node_modules/pusher-js/dist/web/pusher.js ***!
+      \***************************************************/
