@@ -1,13 +1,13 @@
 {
     "name": "dimimo/pool",
-    "description": "The Puerto Galera Billiard Competition Laravel 8|9|10 package",
+    "description": "A Billiard Competition for Laravel 9|10 package",
+    "type": "library",
     "keywords": [
-        "Dimimo",
-        "laravel",
         "pool",
         "billiard",
+        "billiards",
         "competition",
-        "Puerto Galers"
+        "statistics"
     ],
     "homepage": "https://github.com/dimimo/pool",
     "license": "MIT",
