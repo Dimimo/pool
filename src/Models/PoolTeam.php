@@ -6,9 +6,11 @@
 
 namespace Dimimo\Pool\Models;
 
+use Dimimo\Pool\Database\Factories\PoolTeamFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -48,12 +50,7 @@ use Illuminate\Support\Carbon;
  */
 class PoolTeam extends Model
 {
-    /**
-     * The connection to the database
-     *
-     * @var string|null
-     */
-    protected $connection = 'mysql';
+    use HasFactory;
 
     /**
      * The database table used by the model.
@@ -114,6 +111,11 @@ class PoolTeam extends Model
     {
         /** @phpstan-ignore-next-line */
         return $this->players()->where('captain', '1')->get()->first();
+    }
+
+    protected static function newFactory(): PoolTeamFactory
+    {
+        return PoolTeamFactory::new();
     }
 
     /**************************************

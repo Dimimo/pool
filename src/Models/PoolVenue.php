@@ -6,9 +6,11 @@
 
 namespace Dimimo\Pool\Models;
 
+use Dimimo\Pool\Database\Factories\PoolVenueFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
@@ -49,12 +51,7 @@ use Illuminate\Support\Carbon;
  */
 class PoolVenue extends Model
 {
-    /**
-     * The connection to the database
-     *
-     * @var string|null
-     */
-    protected $connection = 'mysql';
+    use HasFactory;
 
     /**
      * The database table used by the model.
@@ -96,6 +93,11 @@ class PoolVenue extends Model
      * @var array<int, string>
      */
     protected $hidden = [];
+
+    protected static function newFactory(): PoolVenueFactory
+    {
+        return PoolVenueFactory::new();
+    }
 
     /**
      * A venue has many teams

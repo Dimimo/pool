@@ -6,9 +6,10 @@
 
 namespace Dimimo\Pool\Models;
 
-use App\Models\User;
+use Dimimo\Pool\Database\Factories\PoolPlayerFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
@@ -27,7 +28,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null        $created_at
  * @property Carbon|null        $updated_at
  * @property-read PoolTeam|null $team
- * @property-read User|null     $user
+ * @property-read Model|null     $user
  *
  * @method static Builder|PoolPlayer cycle()
  * @method static Builder|PoolPlayer newModelQuery()
@@ -48,12 +49,7 @@ use Illuminate\Support\Carbon;
  */
 class PoolPlayer extends Model
 {
-    /**
-     * The connection to the database
-     *
-     * @var string|null
-     */
-    protected $connection = 'mysql';
+    use HasFactory;
 
     /**
      * The database table used by the model.
@@ -104,6 +100,11 @@ class PoolPlayer extends Model
         return $query->where('cycle', session('cycle'));
     }
 
+    protected static function newFactory(): PoolPlayerFactory
+    {
+        return PoolPlayerFactory::new();
+    }
+
     /**
      * A player belongs to a team (!make sure to filter on cycle!)
      *
@@ -117,10 +118,10 @@ class PoolPlayer extends Model
     /**
      * A player belongs to a user (only needed if captain and life scores are introduced)
      *
-     * @return BelongsTo<User, PoolPlayer>
+     * @return BelongsTo<Model, PoolPlayer>
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(config('auth.providers.users.model'), 'user_id', 'id');
     }
 }

@@ -6,9 +6,10 @@
 
 namespace Dimimo\Pool\Models;
 
-use App\Models\User;
+use Dimimo\Pool\Database\Factories\PoolAdminFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
@@ -21,7 +22,7 @@ use Illuminate\Support\Carbon;
  * @property string         $database
  * @property Carbon|null    $created_at
  * @property Carbon|null    $updated_at
- * @property-read User|null $user
+ * @property-read Model|null $user
  *
  * @method static Builder|PoolAdmin newModelQuery()
  * @method static Builder|PoolAdmin newQuery()
@@ -35,12 +36,7 @@ use Illuminate\Support\Carbon;
  */
 class PoolAdmin extends Model
 {
-    /**
-     * The connection to the database
-     *
-     * @var string|null
-     */
-    protected $connection = 'mysql';
+    use HasFactory;
 
     /**
      * The database table used by the model.
@@ -74,13 +70,18 @@ class PoolAdmin extends Model
      */
     protected $hidden = [];
 
+    protected static function newFactory(): PoolAdminFactory
+    {
+        return PoolAdminFactory::new();
+    }
+
     /**
      * An admin belongs to a user
      *
-     * @return BelongsTo<User, PoolAdmin>
+     * @return BelongsTo<Model, PoolAdmin>
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(config('auth.providers.users.model'), 'user_id', 'id');
     }
 }

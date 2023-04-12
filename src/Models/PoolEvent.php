@@ -6,8 +6,10 @@
 
 namespace Dimimo\Pool\Models;
 
+use Dimimo\Pool\Database\Factories\PoolEventFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
@@ -48,12 +50,7 @@ use Illuminate\Support\Carbon;
  */
 class PoolEvent extends Model
 {
-    /**
-     * The connection to the database
-     *
-     * @var string|null
-     */
-    protected $connection = 'mysql';
+    use HasFactory;
 
     /**
      * The database table used by the model.
@@ -95,6 +92,11 @@ class PoolEvent extends Model
      * @var array
      */
     protected $with = ['team_1', 'team_2'];
+
+    protected static function newFactory(): PoolEventFactory
+    {
+        return PoolEventFactory::new();
+    }
 
     /**
      * An event belongs to a date

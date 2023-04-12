@@ -6,9 +6,11 @@
 
 namespace Dimimo\Pool\Models;
 
+use Dimimo\Pool\Database\Factories\PoolDateFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
@@ -44,12 +46,7 @@ use Illuminate\Support\Carbon;
  */
 class PoolDate extends Model
 {
-    /**
-     * The connection to the database
-     *
-     * @var string|null
-     */
-    protected $connection = 'mysql';
+    use HasFactory;
 
     /**
      * The database table used by the model.
@@ -105,6 +102,11 @@ class PoolDate extends Model
         $end = $this->date->format('Y-m-d 20:00:00');
 
         return $now->between($begin, $end);
+    }
+
+    protected static function newFactory(): PoolDateFactory
+    {
+        return PoolDateFactory::new();
     }
 
     /**
