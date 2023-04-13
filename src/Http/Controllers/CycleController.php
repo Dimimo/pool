@@ -72,7 +72,9 @@ class CycleController extends Controller
         $dates = $this->getCalendar();
         $returnDate = null;
         //if this a brand-new cycle, without events, put week played to 0
-        if (! count($dates->first()->events)) {
+        /** @var PoolDate $first */
+        $first = $dates->first();
+        if (! count($first->events)) {
             return 0;
         }
         $week = 0;
