@@ -1,4 +1,6 @@
-# The Puerto Galera Billiard Competition Laravel 9|10 package
+![puerto-galera-pool-league](https://user-images.githubusercontent.com/11265166/231670096-65beb3b7-2e93-4009-a12d-95b82707d4cb.jpg)
+
+# A Billiard Competition Laravel 9|10 package
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dimimo/pool.svg?style=flat-square)](https://packagist.org/packages/dimimo/pool)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/dimimo/pool/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/dimimo/pool/actions?query=workflow%3Arun-tests+branch%3Amain)
