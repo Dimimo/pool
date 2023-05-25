@@ -13,7 +13,7 @@
             </h3>
         </div>
         <div class="card-body">
-            @if (!$date->events()->count())
+            @if ($date->events()->count() === 0)
                 <div class="bigger-120 green">There are no games yet</div>
                 <br>
             @else
@@ -79,8 +79,8 @@
                                     </td>
                                 @endif
                             @else
-                                <td class="align-center @if($event->score1 > 7)green bigger-110 @endif ">{{ $event->score1 ? $event->score1 : '--' }}</td>
-                                <td class="align-center @if($event->score2 > 7)green bigger-110 @endif ">{{ $event->score2 ? $event->score2 : '--' }}</td>
+                                <td class="align-center @if($event->score1 > 7)green bigger-110 @endif ">{{ $event->score1 ?: '--' }}</td>
+                                <td class="align-center @if($event->score2 > 7)green bigger-110 @endif ">{{ $event->score2 ?: '--' }}</td>
                                 <td>
                                     <a href="{{ route('pool.venue.show', [$event->venue->id]) }}" class="grey"
                                        title="show the details of {{  $event->venue->name }}">
@@ -100,7 +100,7 @@
                     </tbody>
                 </table>
                 <br>
-                @if ($date && $date->checkIfGuestHasWritableAccess())
+                @if ($date->checkIfGuestHasWritableAccess())
                     <div class="box-rounded-yellow">
                         <p>
                             <strong>Everybody</strong> has access to update the score from 12h00 to 20h00. Captains should still send the final score by text
@@ -151,14 +151,14 @@
 
 @endsection
 
-@if (($date && $date->checkIfGuestHasWritableAccess()) || $hasAccess)
+@if ($date->checkIfGuestHasWritableAccess() || $hasAccess)
     @push('js')
         @if ($date->checkIfGuestHasWritableAccess())
 
             @include('pool::_pusher', [$score_table = false])
         @endif
 
-        <script src="{{ Storage::disk('static')->url('js/pool-score.js') }}"></script>
+        <script src="{{ asset('js/pool-score.js') }}"></script>
 
         @if($hasAccess)
             <script>
