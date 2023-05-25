@@ -158,7 +158,7 @@
             @include('pool::_pusher', [$score_table = false])
         @endif
 
-        <script src="{{ mix('js/pool-score.js') }}"></script>
+        <script src="{{ Storage::disk('static')->url('js/pool-score.js') }}"></script>
 
         @if($hasAccess)
             <script>
