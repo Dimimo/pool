@@ -101,7 +101,12 @@ class CycleController extends Controller
     {
         $cycle = str_replace('/', '-', $this->cycle);
         if (! $force && cache()->store('file')->has('pool.chart.'.$cycle)) {
-            return cache()->store('file')->get('pool.chart.'.$cycle);
+            $cachedChart = cache()->store('file')->get('pool.chart.'.$cycle);
+            // a hack to avoid __PHP_Incomplete_Class Object error
+            if (get_class($cachedChart) === PoolTeamsChart::class)
+            {
+                return $cachedChart;
+            }
         }
         $teams = $this->getTeamsCollection()->pluck('name', 'id')->toArray();
         $chart = new PoolTeamsChart(count($teams));

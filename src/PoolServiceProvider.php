@@ -6,6 +6,7 @@ use Dimimo\Pool\Commands\InstallPoolPackage;
 use Dimimo\Pool\Commands\PoolScoresSetDay;
 use Dimimo\Pool\Http\Middleware\PoolCycle;
 use Dimimo\Pool\Providers\EventServiceProvider;
+use Dimimo\Pool\Providers\RouteServiceProvider;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Routing\Router;
@@ -22,6 +23,7 @@ class PoolServiceProvider extends BaseServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/pool.php', 'pool');
         // Register the events
         $this->app->register(EventServiceProvider::class);
+        $this->app->register(RouteServiceProvider::class);
     }
 
     /**
