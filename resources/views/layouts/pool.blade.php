@@ -47,7 +47,7 @@
             <img src="{{ Storage::disk('static')->url('img/pg-pool-league-202306.jpg') }}" width="100%" alt="Pool League logo">
             @if (isset($cycles) && count($cycles) > 1)
                 <div class="row mr-1 mt-n5 mb-4">
-                    <div class="col-8 offset-4 offset-md-9 col-md-3 offset-lg-10 col-lg-2 align-right">
+                    <div class="col-auto ml-auto">
                         <label for="cycle_list"></label>
                         <select class="form-control mt-n4" id="cycle_list" title="Change the season">
                             @foreach ($cycles as $c)
