@@ -13,7 +13,7 @@
                     <a href="{{ route('pool.date.show', [$date->id]) }}" class="bigger-150 white" title="Live scores">Live Scores</a>
                 </p>
                 <p>
-                    <a href="{{ route('pool.date.show', [$date->id]) }}" title="The current day schedule" class="yellow bigger-110">
+                    <a href="{{ route('pool.date.show', [$date->id]) }}" title="The current day schedule" class="white bigger-110">
                         <span class="fa-regular fa-circle-right"></span> Update your score here <span class="fa-regular fa-circle-left"></span>
                     </a>
                 </p>

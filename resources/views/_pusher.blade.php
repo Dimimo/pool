@@ -1,5 +1,5 @@
 {{--<script src="{{ Storage::disk('static')->url('js/pool.js') }}"></script>--}}
-<script src="{{ asset('pool/js/pool.js') }}"></script>
+<script src="{{ asset('js/pool.js') }}"></script>
 <script>
     //CHANGE THIS TO ONLY ISSUE ECHO WHEN THE TIME WINDOW IS OPEN, IF NOT, AN ADMIN WILL TRIGGER PUSHER AS WELL AND THAT IS NOT NEEDED
     Pusher.logToConsole = false;
