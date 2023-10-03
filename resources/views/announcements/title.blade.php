@@ -55,8 +55,8 @@
         @include('pool::announcements._title-2023-03')
         @break
 
-    @case('2023/06')
-        @include('pool::announcements._title-2023-06')
+    @case('2023/10')
+        @include('pool::announcements._title-2023-10')
         @break
 
     @default

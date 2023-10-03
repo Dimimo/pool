@@ -3,7 +3,7 @@
     <tr>
         <th class="align-center" style="background-color: #ccc; width: 30px;">#</th>
         <th style="background-color: #93d7d7;">Team Ranking</th>
-        <th style="background-color: #edb825;">Visitors</th>
+        <th style="background-color: #edb825;">versus Team</th>
         <th class="align-center" title="Last scores" style="background-color: #ede553;">Score</th>
         <th class="align-center" style="background-color: #9bed96;"><i class="fa-solid fa-thumbs-up green" title="Games Won"></i></th>
         <th class="align-center" style="background-color: #f2cdab;"><i class="fa-solid fa-thumbs-down orange" title="Games Lost"></i></th>
