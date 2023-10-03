@@ -59,6 +59,10 @@
         @include('pool::announcements._body-2023-06')
         @break
 
+    @case('2023/10')
+        @include('pool::announcements._body-2023-10')
+        @break
+
     @default
         @include('pool::announcements._body-default')
 @endswitch

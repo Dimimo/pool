@@ -7,10 +7,14 @@
                         {{ $date->date->format('jS \o\f M Y') }}
                     </a>
                     @if ($date->title)
-                        <br/><span class="{{ $date->regular ? 'yellow' : 'dark-grey' }}">{{ $date->title }}</span>
+                        <div class="text-white bigger-120">{{ $date->title }}</div>
                     @endif
                     @if ($date->checkIfGuestHasWritableAccess())
-                        <br/><span class="bigger-110 orange" title="click to edit your score">Live scores!</span>
+                        <div class="text-white bigger-130" title="click to edit your score">
+                            <img class="ml-2 mb-1" src="https://static.puertoparrot.com/img/right-arrow.svg" alt="" width="24">
+                            Live scores!
+                            <img class="mr-2 mb-1" src="https://static.puertoparrot.com/img/left-arrow.svg" alt="" width="24">
+                        </div>
                     @endif
                 </div>
                 <table class="table table-hover table-bordered">
