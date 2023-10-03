@@ -1,5 +1,5 @@
 @if ($hasAccess)
-    <div class="box-rounded-orange mt-4">
+    <div class="box-rounded-grey mt-4">
         <div class="box-top mb-1">
             <h5 class="text-center">For Admins only</h5>
         </div>
