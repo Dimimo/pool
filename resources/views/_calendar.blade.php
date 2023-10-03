@@ -11,9 +11,9 @@
                     @endif
                     @if ($date->checkIfGuestHasWritableAccess())
                         <div class="text-white bigger-130" title="click to edit your score">
-                            <img class="ml-2 mb-1" src="https://static.puertoparrot.com/img/right-arrow.svg" alt="" width="24">
+                            <img class="ml-2 mb-1" src="https://static.puertoparrot.com/img/svg/right-arrow.svg" alt="" width="24">
                             Live scores!
-                            <img class="mr-2 mb-1" src="https://static.puertoparrot.com/img/left-arrow.svg" alt="" width="24">
+                            <img class="mr-2 mb-1" src="https://static.puertoparrot.com/img/svg/left-arrow.svg" alt="" width="24">
                         </div>
                     @endif
                 </div>
@@ -62,22 +62,22 @@
             </div>
         @else
             <div class="col-lg-4 col-md-6 col-12">
-                <div class="card-header align-center {{ $date->regular ? 'bg-success' : 'bg-info' }}">
+                <div class="card card-header align-center {{ $date->regular ? 'bg-success' : 'bg-info' }}">
                     <a href="{{ route('pool.date.show', [$date->id]) }}" class="text-white bigger-130" title="click for details">
                         {{ $date->date->format('jS \o\f M Y') }}
                     </a>
                     @if ($date->title)
-                        <span class="mt-2 {{ $date->regular ? 'yellow' : 'light-grey' }}">{{ $date->title }}</span>
+                        <div class="text-white bigger-120">{{ $date->title }}</div>
                     @endif
                 </div>
                 @if ($hasAccess)
                     <div class="box-rounded-orange m-2">
                         There are no games yet, <a href="{{ route('pool.date.show', [$date->id]) }}">please create some</a> or <a
-                            href="{{ route('pool.dates.edit') }}">delete the date if this is an error</a>. Only admins can see this.
+                            href="{{ route('pool.dates.edit') }}">delete the date if this is an error</a>. For admins only.
                     </div>
                 @else
                     <div class="box-rounded-lime m-2">
-                        There are no games yet. This is a placeholder. The teams will appear when the calendar is created.
+                        There are no games yet. The game(s) will appear when the teams are known.
                     </div>
                 @endif
             </div>
