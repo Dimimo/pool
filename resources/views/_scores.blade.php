@@ -31,47 +31,50 @@
         </div>
     @else
         @foreach ($scores as $score)
-            <tr>
-                <td class="align-center" style="background-color: #eaeaea;" title="Your current position">
-                    <strong>{{ $i++ }}</strong>
-                </td>
-                <td style="background-color: #b9d8d8;">
-                    <a href="{{ route('pool.team.show', [$score->get('team')->id]) }}"
-                       class="black">{{ $score->get('team')->name }}</a>
-                </td>
-                <td style="background-color: #e6c466;" title="Last played Team (week {{ $week }})">
-                    <a href="{{ route('pool.team.show', [$score->get('played')->id]) }}"
-                       class="black">{{ $score->get('played')->name }}</a>
-                </td>
-                <td class="align-center @if(!is_null($score_id) && $score_id == $score->get('id')) bigger_110 blue bg-light @endif"
-                    style="background-color: #f2ed92;">
-                    @if ($score->get('last_result') === 'not in')
-                        <span class="orange"><i>not in</i></span>
-                    @elseif ($score->get('last_result') === 'BYE')
-                        <span class="text-muted">BYE</span>
-                    @else
-                        {{ $score->get('last_result') }}
-                    @endif
-                </td>
-                <td class="align-center" title="Daily games won" style="background-color: #c5f3c2;">
-                    {{ $score->get('won') }}
-                </td>
-                <td class="align-center" title="Daily games lost" style="background-color: #f8e4d1;">
-                    {{ $score->get('lost') }}
-                </td>
-                <td class="align-center" title="Total games won" style="background-color: #c5f3c2;">
-                    {{ $score->get('for') }}
-                </td>
-                <td class="align-center" title="Total games lost" style="background-color: #f8e4d1;">
-                    {{ $score->get('against') }}
-                </td>
-                <td class="align-center text-muted" title="Percentage" style="background-color: #eaeaea;">
-                    {{ $score->get('percentage') }}%
-                </td>
-                <td class="align-center grey" title="{{ $score->get('games_played') }} games participated" style="background-color: #e0e0e0;">
-                    {{ $score->get('games_played') }}
-                </td>
-            </tr>
+            @if ($score->get('played'))
+                <tr>
+                    <td class="align-center" style="background-color: #eaeaea;" title="Your current position">
+                        <strong>{{ $i++ }}</strong>
+                    </td>
+                    <td style="background-color: #b9d8d8;">
+                        <a href="{{ route('pool.team.show', [$score->get('team')->id]) }}"
+                           class="black">{{ $score->get('team')->name }}</a>
+                    </td>
+                    <td style="background-color: #e6c466;" title="Last played Team (week {{ $week }})">
+                        <a href="{{ route('pool.team.show', [$score->get('played')->id]) }}"
+                           class="black">{{ $score->get('played')->name }}</a>
+                    </td>
+                    <td class="align-center @if(!is_null($score_id) && $score_id == $score->get('id')) bigger_110 blue bg-light @endif"
+                        style="background-color: #f2ed92;">
+                        @if ($score->get('last_result') === 'not in')
+                            <span class="orange"><i>not in</i></span>
+                        @elseif ($score->get('last_result') === 'BYE')
+                            <span class="text-muted">BYE</span>
+                        @else
+                            {{ $score->get('last_result') }}
+                        @endif
+                    </td>
+                    <td class="align-center" title="Daily games won" style="background-color: #c5f3c2;">
+                        {{ $score->get('won') }}
+                    </td>
+                    <td class="align-center" title="Daily games lost" style="background-color: #f8e4d1;">
+                        {{ $score->get('lost') }}
+                    </td>
+                    <td class="align-center" title="Total games won" style="background-color: #c5f3c2;">
+                        {{ $score->get('for') }}
+                    </td>
+                    <td class="align-center" title="Total games lost" style="background-color: #f8e4d1;">
+                        {{ $score->get('against') }}
+                    </td>
+                    <td class="align-center text-muted" title="Percentage" style="background-color: #eaeaea;">
+                        {{ $score->get('percentage') }}%
+                    </td>
+                    <td class="align-center grey" title="{{ $score->get('games_played') }} games participated"
+                        style="background-color: #e0e0e0;">
+                        {{ $score->get('games_played') }}
+                    </td>
+                </tr>
+            @endif
         @endforeach
     @endif
     </tbody>
