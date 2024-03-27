@@ -59,6 +59,10 @@
         @include('pool::announcements._title-2023-10')
         @break
 
+    @case('2024/03')
+        @include('pool::announcements._title-2024-03')
+        @break
+
     @default
         @include('pool::announcements._title-default')
 @endswitch
